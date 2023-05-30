@@ -75,26 +75,27 @@ model.predict(
     name="train",
 )
 ```
-![process](img\train\retail.jpg)
+![process](img/train/retail.jpg)
 
 During the detection process, image crops for each detected SKU are saved using the `save_crop` parameter, which will be used in the second step.
-![process](data\crops_example.png)
+![crops example](data/crops_example.png)
 
 
 ### Predicting brand for every detected sku
 #### grouping the products in clusters
 To predict the product for each facing crop, an embedding model is applied to identify different product clusters using cosine similarity. The t-SNE[^3] technique, a statistical method for visualizing high-dimensional data, helps to visualize this process. In the t-SNE embeddings representation, similar product crops are grouped together.
-![process](data\t-SNE_clusters.png)
+![t-SNE clusters example 1](data/t-SNE_clusters.png)
 When a new unknown crop is added, it is placed close to the most similar product crop based on the embeddings. This allows us to assume that the unknown product is the same as the closest crops.
-![process](data\t-SNE_clusters_2.png)
+![t-SNE clusters example 1](data/t-SNE_clusters_2.png)
+In this [notebook](notebooks/tsne_embeddings._plot.ipynb) you can find an implementation of the T-SNE
 #### Building the knowledge base
 However, the model does not know the names of each cluster. Hence, manual work is required to classify the crops into folders with corresponding descriptions. This step is equivalent to renaming all the clusters, such as "Cluster 1" becoming "Coca-Cola can" and "Cluster 2" becoming "Coca-Cola Zero can," and so on.
-![process](data\crops_classified_example.png)
+![crops classified](data/crops_classified_example.png)
 This knowledge base is used for further predictions and impacts the predictions in two aspects:
 
 * The predictions are limited to the products that have been classified.
 * The predictions are more accurate with a larger number of crops available for comparison.
-To predict the product of a new facing image, refer to this [notebook](knn.ipynb) where all these techniques are implemented
+To predict the product of a new facing image, refer to this [notebook](notebooks/predict_image_product.ipynb) where all these techniques are implemented
 
 ### Testing the model
 For testing purposes, an image taken in a supermarket is used. The knowledge base for this image includes only a specific set of products, so the model's performance is expected to be good only for those particular products.
