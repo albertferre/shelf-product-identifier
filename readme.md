@@ -98,6 +98,7 @@ This knowledge base is used for further predictions and impacts the predictions 
 
 * The predictions are limited to the products that have been classified.
 * The predictions are more accurate with a larger number of crops available for comparison.
+
 To predict the product of a new facing image, refer to this [notebook](notebooks/predict_image_product.ipynb) where all these techniques are implemented
 
 ### Testing the model
