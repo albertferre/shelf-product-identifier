@@ -91,6 +91,7 @@ In this [notebook](notebooks/tsne_embeddings._plot.ipynb) you can find an implem
 #### Building the knowledge base
 However, the model does not know the names of each cluster. Hence, manual work is required to classify the crops into folders with corresponding descriptions. This step is equivalent to renaming all the clusters, such as "Cluster 1" becoming "Coca-Cola can" and "Cluster 2" becoming "Coca-Cola Zero can," and so on.
 ![crops classified](data/crops_classified_example.png)
+
 This knowledge base is used for further predictions and impacts the predictions in two aspects:
 
 * The predictions are limited to the products that have been classified.
