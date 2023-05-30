@@ -85,6 +85,7 @@ During the detection process, image crops for each detected SKU are saved using 
 #### grouping the products in clusters
 To predict the product for each facing crop, an embedding model is applied to identify different product clusters using cosine similarity. The t-SNE[^3] technique, a statistical method for visualizing high-dimensional data, helps to visualize this process. In the t-SNE embeddings representation, similar product crops are grouped together.
 ![t-SNE clusters example 1](data/t-SNE_clusters.png)
+
 When a new unknown crop is added, it is placed close to the most similar product crop based on the embeddings. This allows us to assume that the unknown product is the same as the closest crops.
 ![t-SNE clusters example 1](data/t-SNE_clusters_2.png)
 
