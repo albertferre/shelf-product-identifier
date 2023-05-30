@@ -87,6 +87,7 @@ To predict the product for each facing crop, an embedding model is applied to id
 ![t-SNE clusters example 1](data/t-SNE_clusters.png)
 When a new unknown crop is added, it is placed close to the most similar product crop based on the embeddings. This allows us to assume that the unknown product is the same as the closest crops.
 ![t-SNE clusters example 1](data/t-SNE_clusters_2.png)
+
 In this [notebook](notebooks/tsne_embeddings._plot.ipynb) you can find an implementation of the T-SNE
 #### Building the knowledge base
 However, the model does not know the names of each cluster. Hence, manual work is required to classify the crops into folders with corresponding descriptions. This step is equivalent to renaming all the clusters, such as "Cluster 1" becoming "Coca-Cola can" and "Cluster 2" becoming "Coca-Cola Zero can," and so on.
