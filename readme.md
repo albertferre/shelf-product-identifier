@@ -58,7 +58,7 @@ In summary, the methodology combines YOLOv8 for SKU detection and image embeddin
 ![process](data/process.svg)
 
 ### Identifying all skus from a shelf image
-For this step, a model was trained using the YOLOv8m (medium) model and the SKU110K dataset[^2]. Due to hardware constraints, the training was performed using a Kaggle notebook. The notebook and the model weights are available [here](https://www.kaggle.com/code/albertferre/).
+For this step, a model was trained using the YOLOv8m (medium) model and the SKU110K dataset[^2]. Due to hardware constraints, the training was performed using a Kaggle notebook. The notebook and the model weights are available [here](https://www.kaggle.com/code/albertferre/sku-facings-detector).
 
 To identify SKUs in an image, the following code snippet demonstrates the usage of the trained model:
 ```python
