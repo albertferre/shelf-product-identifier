@@ -55,7 +55,7 @@ The second step focuses on **predicting the product of each detected facing. Thi
 By associating clusters with product names in a knowledge base, the model can predict the product of a new facing image based on similarity to known clusters. This enables accurate counting of facings and facilitates inventory management in retail stores.
 
 In summary, the methodology combines YOLOv8 for SKU detection and image embeddings for brand prediction, enabling efficient and accurate counting of facings using computer vision techniques.
-![process](data/process.svg)
+![process](img/process.svg)
 
 ### Identifying all skus from a shelf image
 For this step, a model was trained using the YOLOv8m (medium) model and the SKU110K dataset[^2]. Due to hardware constraints, the training was performed using a Kaggle notebook. The notebook and the model weights are available [here](https://www.kaggle.com/code/albertferre/sku-facings-detector).
@@ -75,24 +75,24 @@ model.predict(
     name="train",
 )
 ```
-![process](img/train/retail.jpg)
+![process](data/img/retail.jpg)
 
 During the detection process, image crops for each detected SKU are saved using the `save_crop` parameter, which will be used in the second step.
-![crops example](data/crops_example.png)
+![crops example](img/crops_example.png)
 
 
 ### Predicting brand for every detected sku
 #### grouping the products in clusters
 To predict the product for each facing crop, an embedding model is applied to identify different product clusters using cosine similarity. The t-SNE[^3] technique, a statistical method for visualizing high-dimensional data, helps to visualize this process. In the t-SNE embeddings representation, similar product crops are grouped together.
-![t-SNE clusters example 1](data/t-SNE_clusters.png)
+![t-SNE clusters example 1](img/t-SNE_clusters.png)
 
 When a new unknown crop is added, it is placed close to the most similar product crop based on the embeddings. This allows us to assume that the unknown product is the same as the closest crops.
-![t-SNE clusters example 1](data/t-SNE_clusters_2.png)
+![t-SNE clusters example 1](img/t-SNE_clusters_2.png)
 
-In this [notebook](notebooks/tsne_embeddings._plot.ipynb) you can find an implementation of the T-SNE
+In this [notebook](notebooks/tsne_embeddings.ipynb) you can find an implementation of the T-SNE
 #### Building the knowledge base
 However, the model does not know the names of each cluster. Hence, manual work is required to classify the crops into folders with corresponding descriptions. This step is equivalent to renaming all the clusters, such as "Cluster 1" becoming "Coca-Cola can" and "Cluster 2" becoming "Coca-Cola Zero can," and so on.
-![crops classified](data/crops_classified_example.png)
+![crops classified](img/crops_classified_example.png)
 
 This knowledge base is used for further predictions and impacts the predictions in two aspects:
 
@@ -104,7 +104,7 @@ To predict the product of a new facing image, refer to this [notebook](notebooks
 ### Testing the model
 For testing purposes, an image taken in a supermarket is used. The knowledge base for this image includes only a specific set of products, so the model's performance is expected to be good only for those particular products.
 
-*a desenvolupar*
+*TO DO*
 
 ## How to  run the model
 ### Preparing the environment
@@ -133,7 +133,7 @@ It is possible to build software capable of extracting important data from image
 ## Links
 
 https://github.com/MathMagicx/JupyterNotebooks/blob/master/ImageRecommenderResnet18/Recommending%20Similar%20Images.ipynb
-
+https://towardsdatascience.com/effortlessly-recommending-similar-images-b65aff6aabfb
 https://github.com/MathMagicx/JupyterNotebooks
 
 [^1]: https://github.com/ultralytics/ultralytics
