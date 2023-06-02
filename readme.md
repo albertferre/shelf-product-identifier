@@ -117,6 +117,7 @@ However, it is worth noting that the model misclassified the Sprite PET as Cream
 ## How to  run the model
 ### Preparing the environment
 Assuming you have Conda installed on your system, follow these steps to set up the environment:
+
 **Creating the environment**
 
 ``` Bash
