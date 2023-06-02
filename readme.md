@@ -118,15 +118,25 @@ However, it is worth noting that the model misclassified the Sprite PET as Cream
 ### Preparing the environment
 Assuming you have Conda installed on your system, follow these steps to set up the environment:
 **Creating the environment**
+
 ``` Bash
 conda env create -f env.yaml
 ```
 
 **Activating the environment**
+
 ``` Bash
 conda activate facings-identifier
 ```
+
+**Reinstalling pytorch**
+
+``` Bash
+pip install --force-reinstall torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
+```
+
 **Identifiyng crops from a shelf image**
+
 Assuming the image you want to analyze is located at data/img/testing.jpg, you can use the following command to identify the different product facings and predict their corresponding product names:
 ``` Bash
 python main.py --input "data/img/testing.jpg"

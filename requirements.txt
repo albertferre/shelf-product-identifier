@@ -1,1 +1,2 @@
 ultralytics==8.0.92
+scikit-learn==1.2.2
