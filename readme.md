@@ -164,7 +164,7 @@ By pursuing these next steps, retailers can fully leverage the potential of comp
 
 ## Links
 
-This notebook has been very helpful on building this model:
+This notebook has been a helpful resource for understanding and implementing similar image recommendation systems.
 
 https://github.com/MathMagicx/JupyterNotebooks/blob/master/ImageRecommenderResnet18/Recommending%20Similar%20Images.ipynb
 
