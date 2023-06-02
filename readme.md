@@ -112,7 +112,7 @@ In this specific test, the crops analyzed included Coca-Cola PET (Crop 26), Fant
 
 ![testing results](img/testing.png)
 
-However, it is worth noting that the model misclassified the Sprite PET as Cream Soda. This discrepancy can be attributed to the difference in logos between the Sprite product in the image and the Sprite representation in the knowledge base. This example highlights the significance of maintaining a comprehensive and regularly updated knowledge base.
+However, the model misclassified the Sprite PET as Cream Soda. This discrepancy can be attributed to the difference in logos between the Sprite product in the image and the Sprite representation in the knowledge base. This example highlights the significance of maintaining a comprehensive and regularly updated knowledge base.
 
 ## How to  run the model
 ### Preparing the environment
