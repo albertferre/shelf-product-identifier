@@ -1,0 +1,33 @@
+[project]
+name = "shelf-product-identifier"
+version = "0.1.0"
+requires-python = ">=3.11,<3.12"
+dependencies = [
+    "numpy==1.26.3",
+    "scipy==1.16.3",
+    "scikit-learn==1.4.2",
+    "Pillow==11.3.0",
+    "tqdm==4.66.5",
+    "ultralytics==8.0.92",
+    "torch==2.1.0",
+    "torchvision==0.16.0",
+    "torchaudio==2.1.0",
+    "setuptools==70.2.0",
+    "wheel==0.45.1",
+    "pip==25.3",
+
+]
+
+[dependency-groups]
+dev = [
+    "ipykernel>=7.1.0",
+]
+
+[tool.uv.sources]
+torch = { index = "pytorch_cpu" }
+torchvision = { index = "pytorch_cpu" }
+torchaudio = { index = "pytorch_cpu" }
+
+[[tool.uv.index]]
+name = "pytorch_cpu"
+url = "https://download.pytorch.org/whl/cpu"
