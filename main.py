@@ -70,6 +70,7 @@ if __name__ == "__main__":
     # Get a list of image file paths using glob
     list_imgs = glob.glob(f"{DATA_PATH}/{PATH}/crops/object/*.jpg")
 
+    print("Classifying images from ", f"{DATA_PATH}/{PATH}/crops/object/*.jpg")
     for IMG_DIR in list_imgs:
 
         # Open the target image file
@@ -95,6 +96,12 @@ if __name__ == "__main__":
 
 
         crop_name = Path(IMG_DIR).stem
+
+        # move crop image into the corresponding folder
+        if not os.path.exists(f"{DATA_PATH}/{PATH}/crops/{product}"):
+            os.makedirs(f"{DATA_PATH}/{PATH}/crops/{product}")
+        os.replace(IMG_DIR, f"{DATA_PATH}/{PATH}/crops/{product}/{crop_name}.jpg")
+        
         file_path = f"{DATA_PATH}/{PATH}/predictions.txt"
         with open(file_path, "a", newline="") as file:
             # writer = csv.writer(file)
@@ -102,3 +109,6 @@ if __name__ == "__main__":
             # Write a row to the file
             row = f"the crop image {crop_name} is predicted as {product} with a {n/N_NEIGHBORS:.0%} probability\n"
             file.write(row)
+        # write csv file
+        with open(f"{DATA_PATH}/{PATH}/predictions.csv", "a", newline="") as file:
+            file.write(f"{crop_name},{product},{n/N_NEIGHBORS:.0%}\n")
