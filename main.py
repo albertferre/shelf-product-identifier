@@ -101,7 +101,7 @@ if __name__ == "__main__":
         if not os.path.exists(f"{DATA_PATH}/{PATH}/crops/{product}"):
             os.makedirs(f"{DATA_PATH}/{PATH}/crops/{product}")
         os.replace(IMG_DIR, f"{DATA_PATH}/{PATH}/crops/{product}/{crop_name}.jpg")
-        
+
         file_path = f"{DATA_PATH}/{PATH}/predictions.txt"
         with open(file_path, "a", newline="") as file:
             # writer = csv.writer(file)
