@@ -1,6 +1,7 @@
 import os
 from ultralytics import YOLO
 import glob
+from src.img2vec_dino2 import Img2VecDino2
 from src.img2vec_resnet18 import Img2VecResnet18
 from PIL import Image
 from  sklearn.neighbors import NearestNeighbors
@@ -11,6 +12,7 @@ import argparse
 MODEL_PATH = 'models/best.pt'
 DATA_PATH = 'data'
 N_NEIGHBORS = 5
+model = "dino2"  # options: "resnet18" or "dino2"
 
 
 if __name__ == "__main__":
@@ -38,7 +40,10 @@ if __name__ == "__main__":
     list_imgs = glob.glob(f"{DATA_PATH}/knowledge_base/crops/object/**/*.jpg")
 
     # Create an instance of the Img2VecResnet18 model
-    img2vec = Img2VecResnet18()
+    if model == "dino2":
+        img2vec = Img2VecDino2()
+    else:
+        img2vec = Img2VecResnet18()
 
     # Create empty lists to store classes and embeddings
     classes = []

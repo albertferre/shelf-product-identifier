@@ -15,12 +15,14 @@ dependencies = [
     "setuptools==70.2.0",
     "wheel==0.45.1",
     "pip==25.3",
-
+    "transformers==4.40.2",
+    "huggingface-hub==0.22.0",
 ]
 
 [dependency-groups]
 dev = [
     "ipykernel>=7.1.0",
+    "ipywidgets>=8.1.8",
 ]
 
 [tool.uv.sources]
